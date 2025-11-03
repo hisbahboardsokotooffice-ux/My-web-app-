@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hisbah - Intelligent Register</title>
+  <link rel="stylesheet" href="intelligent-style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="assets/logo.png" alt="Hisbah Logo" class="logo" />
+    <h2>Register - Intelligent Unit</h2>
+
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Full name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password (min 6 chars)" required />
+      <input type="text" id="office" placeholder="Office / Department (e.g. Intelligent)" required />
+
+      <label style="margin-top:8px; display:block; font-weight:600; color:#00695c;">Profile photo (optional)</label>
+      <input type="file" id="photo" accept="image/*" />
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p class="small">Already have account? <a href="intelligent.html">Login here</a></p>
+    <p id="regMsg" class="msg"></p>
+  </div>
+
+  <script type="module" src="intelligent-auth.js"></script>
+</body>
+</html>

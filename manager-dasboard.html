@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hisbah Manager Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="manager-theme">
+  <header class="header">
+    <img src="assets/Logo.png" class="logo" alt="Logo">
+    <h1>📊 Hisbah Manager Dashboard</h1>
+    <div class="theme-switcher">
+      <label>🎨 Theme:</label>
+      <select id="themeSelector">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section>
+      <h2>📋 Staff Overview</h2>
+      <table border="1">
+        <thead><tr><th>Name</th><th>Email</th><th>Status</th></tr></thead>
+        <tbody id="staffList"></tbody>
+      </table>
+    </section>
+
+    <button id="logoutBtn">Logout</button>
+  </main>
+
+  <script type="module" src="js/manager-dashboard.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

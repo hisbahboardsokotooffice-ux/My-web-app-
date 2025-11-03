@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hisbah - Intelligent Unit Login</title>
+  <link rel="stylesheet" href="intelligent-style.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="assets/logo.png" alt="Hisbah Logo" class="logo" />
+    <h2>🕵️‍♂️ Intelligent Unit Login</h2>
+
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="forgot">
+      <a href="#" id="forgotLink">Forgot password?</a>
+    </div>
+
+    <p class="small">New to Intelligent Unit? <a href="intelligent-register.html">Register here</a></p>
+    <p id="loginMsg" class="msg"></p>
+  </div>
+
+  <script type="module" src="intelligent-auth.js"></script>
+</body>
+</html>

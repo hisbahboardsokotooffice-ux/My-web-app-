@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sokoto State Hisbah Board — Portal</title>
+
+  <!-- Global style (replace with your style.css) -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Small local styling to ensure landing looks polished even if style.css is missing */
+    :root{
+      --main:#004d40; --accent:#00796b; --bg:#f5f5f5; --card:#fff;
+    }
+    html,body{height:100%; margin:0; font-family:Inter, "Poppins", Arial, sans-serif; background:var(--bg); color:#222;}
+    .hero{
+      background: linear-gradient(90deg, rgba(0,77,64,0.95), rgba(0,121,107,0.95));
+      color:#fff;
+      padding:28px 16px;
+      text-align:center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .hero .brand{
+      display:flex; gap:12px; align-items:center; justify-content:center;
+    }
+    .hero img{height:72px; width:auto; border-radius:10px; background:#fff; padding:6px;}
+    .hero h1{margin:8px 0 0; font-size:22px; letter-spacing:0.4px;}
+    .hero p{margin:6px 0 0; opacity:0.95;}
+
+    .container{max-width:1100px; margin:20px auto; padding:18px;}
+    .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+    .card{background:var(--card); padding:14px; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,0.06); text-align:center;}
+    .card h3{color:var(--main); margin:0 0 8px;}
+    .card p{margin:0 0 12px; color:#444;}
+    .btn{display:inline-block; padding:10px 14px; border-radius:8px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600;}
+    .link-muted{color:#666; font-size:13px; display:block; margin-top:10px;}
+    footer{padding:16px; text-align:center; color:#666; font-size:14px;}
+
+    /* theme switcher in header */
+    .theme-switcher{position:absolute; right:18px; top:18px; background:rgba(255,255,255,0.08); padding:6px 10px; border-radius:8px;}
+    .theme-switcher select{border-radius:6px; padding:6px; border:none; outline:none;}
+
+    /* responsive */
+    @media (max-width:600px){
+      .hero h1{font-size:18px;}
+      .hero img{height:56px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero" role="banner">
+    <div class="theme-switcher">
+      <label style="color:#fff; font-weight:600; margin-right:8px;">Theme</label>
+      <select id="themeSelector">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
+
+    <div class="brand">
+      <img src="assets/Logo.png" alt="Sokoto Hisbah Logo" />
+      <div>
+        <h1>Sokoto State Hisbah Board</h1>
+        <p>Official staff portal — Admin • Manager • Staff • Command • Intelligent Unit</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section style="margin-bottom:18px; text-align:center;">
+      <h2 style="color:var(--main); margin-bottom:10px;">Welcome to the Hisbah Staff Portal</h2>
+      <p style="max-width:760px; margin:0 auto 12px; color:#444;">
+        Use the buttons below to go to the appropriate login area or register a new account.
+        Make sure you have registered and been assigned the correct role (admin/manager/staff/command/intelligent).
+      </p>
+    </section>
+
+    <section class="cards" aria-label="Portal sections">
+      <div class="card">
+        <h3>Admin Login</h3>
+        <p>Super admin access — manage users, settings and reports.</p>
+        <a class="btn" href="admin.html">Login as Admin</a>
+        <span class="link-muted">Only authorized admins</span>
+      </div>
+
+      <div class="card">
+        <h3>Manager Login</h3>
+        <p>Managers view and control staff in their office/unit.</p>
+        <a class="btn" href="manager.html">Login as Manager</a>
+        <span class="link-muted">Unit-level operations</span>
+      </div>
+
+      <div class="card">
+        <h3>Staff Login</h3>
+        <p>Staff portal — submit reports, upload signatures and evidence.</p>
+        <a class="btn" href="staff.html">Login as Staff</a>
+        <span class="link-muted">Daily reports & tasks</span>
+      </div>
+
+      <div class="card">
+        <h3>Command Login</h3>
+        <p>Command center — view operations, dispatch and alerts.</p>
+        <a class="btn" href="command.html">Login as Command</a>
+        <span class="link-muted">Operations & dispatch</span>
+      </div>
+
+      <div class="card">
+        <h3>Intelligent Unit</h3>
+        <p>Intelligence officers — reports, messages, GPS & evidence capture.</p>
+        <a class="btn" href="intelligent.html">Intelligent Login</a>
+        <span class="link-muted">Secret communication & GPS</span>
+      </div>
+
+      <div class="card">
+        <h3>Register</h3>
+        <p>Create account (choose role). For admin creation use console or admin panel.</p>
+        <a class="btn" href="register.html">Register</a>
+        <span class="link-muted">Upload signature/profile at registration</span>
+      </div>
+    </section>
+
+    <section style="margin-top:18px;">
+      <div class="card" style="text-align:left;">
+        <h3 style="color:#333; margin-bottom:10px;">Quick links & notes</h3>
+        <ul style="color:#444; line-height:1.6;">
+          <li>Use <strong>Register</strong> to create staff/manager/intelligent accounts.</li>
+          <li>Admins should create other admin accounts only via Firebase Console or admin panel for security.</li>
+          <li>If you get "auth/api-key-not-valid" error, confirm firebase keys inside <code>js/firebase-config.js</code>.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© Sokoto State Hisbah Board — Built for internal use. Keep credentials secure.</small>
+  </footer>
+
+  <!-- Theme script (shared) -->
+  <script>
+    // small theme loader compatible with js/theme.js used earlier
+    const select = document.getElementById('themeSelector');
+    const saved = localStorage.getItem('hisbahTheme');
+    if (saved) {
+      document.body.classList.add(saved);
+      select.value = saved.replace('-theme','');
+    }
+
+    select.addEventListener('change', () => {
+      // remove known theme classes
+      document.body.classList.remove('dark-theme','blue-theme');
+      const val = select.value;
+      if (val !== 'default') {
+        document.body.classList.add(val + '-theme');
+        localStorage.setItem('hisbahTheme', val + '-theme');
+      } else {
+        localStorage.removeItem('hisbahTheme');
+      }
+    });
+  </script>
+
+</body>
+</html>

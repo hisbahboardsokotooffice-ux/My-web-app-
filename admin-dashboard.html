@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hisbah Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-theme">
+  <header class="header">
+    <img src="assets/Logo.png" class="logo" alt="Logo">
+    <h1>🕌 Hisbah Admin Dashboard</h1>
+    <div class="theme-switcher">
+      <label>🎨 Theme:</label>
+      <select id="themeSelector">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section>
+      <h2>👥 Manage Admins</h2>
+      <form id="addAdminForm">
+        <input type="email" id="newAdminEmail" placeholder="Enter new admin email" required>
+        <button type="submit">Add Admin</button>
+      </form>
+      <table border="1">
+        <thead><tr><th>Email</th><th>Action</th></tr></thead>
+        <tbody id="adminList"></tbody>
+      </table>
+    </section>
+
+    <button id="logoutBtn">Logout</button>
+  </main>
+
+  <script type="module" src="js/admin-dashboard.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

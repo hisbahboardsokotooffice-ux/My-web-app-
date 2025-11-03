@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hisbah Staff Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="staff-theme">
+  <header class="header">
+    <img src="assets/Logo.png" class="logo" alt="Logo">
+    <h1>🧍 Hisbah Staff Dashboard</h1>
+    <div class="theme-switcher">
+      <label>🎨 Theme:</label>
+      <select id="themeSelector">
+        <option value="default">Default</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section>
+      <h2>📁 My Profile</h2>
+      <p>Email: <span id="staffEmail"></span></p>
+      <p>Office: <span id="staffOffice"></span></p>
+    </section>
+
+    <button id="logoutBtn">Logout</button>
+  </main>
+
+  <script type="module" src="js/staff-dashboard.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Manager Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header"><h2>Manager Login</h2></div>
+  <div class="container">
+    <div class="card">
+      <form id="loginForm">
+        <input id="email" class="form-input" type="email" placeholder="Email" required />
+        <input id="password" class="form-input" type="password" placeholder="Password" required />
+        <button class="btn" type="submit">Login as Manager</button>
+      </form>
+      <p id="loginMsg" class="center"></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth, db } from './js/firebase-config.js';
+    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+    import { ref as dbRef, get as dbGet } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
+    const $ = id => document.getElementById(id);
+    $('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault(); $('loginMsg').textContent='';
+      try {
+        const cred = await signInWithEmailAndPassword(auth, $('email').value.trim(), $('password').value);
+        const uid = cred.user.uid;
+        const snap = await dbGet(dbRef(db, `users/${uid}`));
+        if (!snap.exists()) { $('loginMsg').textContent='No record.'; return; }
+        if (snap.val().role !== 'manager') { $('loginMsg').textContent='Not a manager account.'; await auth.signOut(); return; }
+        window.location.href = 'manager-dashboard.html';
+      } catch (err) { $('loginMsg').textContent = err.message; }
+    });
+  </script>
+</body>
+</html>

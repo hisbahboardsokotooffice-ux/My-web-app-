@@ -1,0 +1,38 @@
+<!-- register.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Hisbah - Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header"><h2>Sokoto State Hisbah Board — Register</h2></div>
+  <div class="container">
+    <div class="card">
+      <h3 class="center">Create an account</h3>
+      <form id="registerForm">
+        <input class="form-input" id="fullName" placeholder="Full name" required />
+        <input class="form-input" id="regEmail" type="email" placeholder="Email" required />
+        <input class="form-input" id="regPassword" type="password" placeholder="Password (min 6)" required />
+        <select id="role" class="form-input" required>
+          <option value="">Select role</option>
+          <option value="admin">Admin</option>
+          <option value="manager">Manager</option>
+          <option value="staff">Staff</option>
+          <option value="command">Command</option>
+          <option value="intelligent">Intelligent</option>
+        </select>
+        <input class="form-input" id="office" placeholder="Office / Department (e.g. Sokoto HQ)" />
+        <label class="small">Upload signature/profile (image) — recommended for staff</label>
+        <input class="form-input" id="signatureFile" type="file" accept="image/*" />
+        <button class="btn" type="submit">Register</button>
+      </form>
+      <p class="small center">Already registered? <a class="link" href="staff.html">Staff login</a> | <a class="link" href="manager.html">Manager login</a> | <a class="link" href="admin.html">Admin login</a></p>
+      <p id="regMessage" class="center"></p>
+    </div>
+  </div>
+
+  <script type="module" src="js/register.js"></script>
+</body>
+</html>

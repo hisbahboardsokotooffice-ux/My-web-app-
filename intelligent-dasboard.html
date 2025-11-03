@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hisbah Intelligent Unit Dashboard</title>
+  <link rel="stylesheet" href="intelligent-style.css">
+</head>
+<body class="intelligent-theme">
+  <header>
+    <img src="assets/Logo.png" alt="Hisbah Logo" class="logo">
+    <h1>🧠 Hisbah Intelligent Unit Dashboard</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <main class="dashboard">
+    <!-- 📋 Report Section -->
+    <section class="reports">
+      <h2>📋 Daily Intelligence Reports</h2>
+      <textarea id="reportText" placeholder="Enter your daily report..."></textarea>
+      <button id="submitReport">Submit Report</button>
+      <ul id="reportList"></ul>
+    </section>
+
+    <!-- 📷 Camera Evidence -->
+    <section class="camera-section">
+      <h2>📸 Capture & Upload Evidence</h2>
+      <video id="cameraFeed" autoplay></video>
+      <button id="captureBtn">Capture</button>
+      <canvas id="snapshot" style="display:none;"></canvas>
+      <button id="uploadEvidence">Upload Evidence</button>
+      <p id="uploadStatus"></p>
+    </section>
+
+    <!-- 📍 GPS Tracking -->
+    <section class="gps-section">
+      <h2>📍 Live Location</h2>
+      <p id="locationStatus">Getting your location...</p>
+      <iframe id="mapFrame" width="100%" height="250" style="border:0;" allowfullscreen loading="lazy"></iframe>
+    </section>
+
+    <!-- 💬 Private Messaging -->
+    <section class="message-section">
+      <h2>💬 Send Secure Message</h2>
+      <input type="text" id="receiverEmail" placeholder="Receiver Email">
+      <textarea id="messageText" placeholder="Enter secret message..."></textarea>
+      <button id="sendMessage">Send Message</button>
+      <ul id="messageList"></ul>
+    </section>
+  </main>
+
+  <!-- JS -->
+  <script type="module" src="js/intelligent-dashboard.js"></script>
+</body>
+</html>

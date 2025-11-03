@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="header"><h2>Admin Login</h2></div>
+  <div class="container">
+    <div class="card">
+      <form id="loginForm">
+        <input id="email" class="form-input" type="email" placeholder="Email" required />
+        <input id="password" class="form-input" type="password" placeholder="Password" required />
+        <button class="btn" type="submit">Login as Admin</button>
+      </form>
+      <p id="loginMsg" class="center"></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth, db } from './js/firebase-config.js';
+    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+    import { ref as dbRef, get as dbGet } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-database.js";
+
+    const $ = id => document.getElementById(id);
+    $('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      $('loginMsg').textContent = '';
+      const email = $('email').value.trim(), pass = $('password').value;
+      try {
+        const cred = await signInWithEmailAndPassword(auth, email, pass);
+        const uid = cred.user.uid;
+        const snap = await dbGet(dbRef(db, `users/${uid}`));
+        if (!snap.exists()) { $('loginMsg').textContent = 'No user record. Contact admin.'; return; }
+        const data = snap.val();
+        if (data.role !== 'admin') { $('loginMsg').textContent = 'Not an admin account.'; await auth.signOut(); return; }
+        window.location.href = 'admin-dashboard.html';
+      } catch (err) { $('loginMsg').textContent = err.message; }
+    });
+  </script>
+</body>
+</html>
