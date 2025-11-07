@@ -1,4 +1,3 @@
-// js/firebase-config.js
 // Shared Firebase initialization (ES module)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
